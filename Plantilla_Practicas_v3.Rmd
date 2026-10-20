@@ -383,23 +383,54 @@ summary: devuelve datos estadísticos
 
 ## 4.1 Importación del fichero
 
-### Subsubapartado (nivel 3 \###). Cómo incluir figuras
+```{r}
+library(haven)
+filename2 <- "data/PsychBike.sav"
 
-Podemos especificar parámetros de tamaño y ubicación en el *chunk*
+bike<-read_sav(filename2)
+if(!dir.exists("./data/results")){
+  dir.create("./data/results")
+}
 
-<!-- ```{r rmarkdown, echo=FALSE,include=FALSE, out.width='30%', fig.align='center', fig.cap='Logo ETSE (desde archivo PNG).'} -->
+save(bike, file = "./data/results/bike.RData")
 
-<!-- knitr::include_graphics("figure/logoETSE.png") -->
-
-<!-- ``` -->
-
-### Subsubapartado (nivel 3 \###).
-
-En este caso visualizamos el código. Observa como podemos incluir una figura y también ponerle un título
-
-```{r rmarkdown2, echo=TRUE, out.width='20%', fig.align='center', fig.cap='Logo GCD (desde archivo png).'}
-knitr::include_graphics("figure/logoEtse.png")
+bike
 ```
+
+## 4.2 Inspección de los datos
+
+```{r}
+str(bike)
+head(bike)
+tail(bike)
+summary(as.character(bike)) #hay que convertir a caracter para que no de error
+```
+
+# 5 Fichero data *iris.zip*
+
+Visualiza la pagina web de los datos [Iris del repostorio de UCI Machine Learning](https://archive.ics.uci.edu/dataset/53/iris), copia el link de descarga y guarda el archivo zip en la carpeta data.
+
+```{r}
+
+if(!dir.exists("./data")){
+  dir.create("./data")
+}
+
+url<-"https://archive.ics.uci.edu/static/public/53/iris.zip"
+
+download.file(url=url,destfile="./data/iris.zip")
+
+```
+
+## 5.1 Descomprimir el fichero
+
+```{r}
+unzip("./data/iris.zip", exdir = "./data")
+```
+
+# 6 Fichero data *iris.data*
+
+## 6.1 Importación del fichero
 
 # Inclusión de ecuaciones
 
