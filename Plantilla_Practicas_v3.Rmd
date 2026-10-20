@@ -432,23 +432,38 @@ unzip("./data/iris.zip", exdir = "./data")
 
 ## 6.1 Importación del fichero
 
-# Inclusión de ecuaciones
+6.1.1 Utiliza la funcion `read_table` para importar los datos.
 
-Puedes incluir expresiones matemáticas usando la nomenclatura LaTeX por ejemplo:
-
-$ax^2+bx+c=0$
-
-### Subsubapartado (nivel 3 \###).
-
-Podemos referirnos a una figura haciendo referencia al nombre del chunk `\@ref(fig:chunk-name))`
-
-```{r newFig, echo=TRUE, out.width='60%', fig.align='center', fig.cap='Histograma.'}
-
-hist(rnorm(100000),breaks=100)
-
+```{r}
+datos<-'data/iris.data'
+iris<-read.table(datos,sep=',')
+iris
 ```
 
-En la figura \@ref(fig:newFig) se muestra un histograma de una distribución normal.
+6.2.2 Cambiar el nombre de las columnas
+
+```{r}
+colnames(iris)<-c('Role','Type','Description','Units','Missi')
+```
+
+6.2.3 Guardar el data frame en la carpeta results
+
+```{r}
+save(iris, file = "./data/results/iris.RData")
+```
+
+## 6.2 Inspección de los datos
+
+```{r}
+str(iris)
+head(iris)
+tail(iris)
+summary(as.character(iris)) #hay que convertir a caracter para que no de error
+```
+
+# 7 Fichero JSON  *FileCodificado.json*
+
+## 7.1 Importación del fichero
 
 # Nuevo apartado nivel I \#
 
