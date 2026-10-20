@@ -334,13 +334,33 @@ save(df, file = "./data/results/df.RData")
 str(df)
 head(df)
 tail(df)
-summary(df)
+#summary(df)
 ```
 
 str: enseña la estructura interna del data frame
+
 head: devuelve las 6 primeras filas del data frame
+
 tail: devuelve las 6 últimas filas del data frame
+
 summary: da error
+
+## 3 Fichero *Transactions from a Bakery* (Kaggle)
+
+### 3.1 Importación del fichero
+
+```{r}
+filename<-"data/bakery_sales_revised.csv"
+
+library(readr)
+bakery<-read_csv(filename)
+
+if(!dir.exists("./data/results")){
+  dir.create("./data/results")
+}
+
+save(bakery, file = "./data/results/bakery.RData")
+```
 
 ### Subsubapartado (nivel 3 \###). Cómo incluir figuras
 
