@@ -465,12 +465,59 @@ summary(as.character(iris)) #hay que convertir a caracter para que no de error
 
 ## 7.1 Importación del fichero
 
-# Nuevo apartado nivel I \#
+```{r}
+library(jsonlite)
+filename4<-'data/FileCodificado.json'
 
-Compila el proyecto como **pdf** y como **html** y observa el fichero obtenido. Cuando generes el documento **html**, observa el efecto de cambiar el valor **theme** por algún otro. Ten en cuenta que este parámetro solo se puede usar la salida **html**.
+file_cod<-read_json(filename4,simplifyVector=T)
+
+class(file_cod)
+
+```
+
+Al usar simplifyVector, convierte la lista en un data frame, lo cual hace que sea mucho más facil de trabajar con ello.
+
+## 7.3 Inspección de los datos
 
 ```{r}
+dim(file_cod)
+str(file_cod)
+head(file_cod)
+tail(file_cod)
+summary(as.character(file_cod)) #hay que convertir a caracter para que no de error
+```
 
+# 8 Fichero JSON *iris_json.json*
+
+## 8.1 Importar el fichero `iris_json.json`
+
+```{r}
+library(jsonlite)
+filename5<-'data/iris_json.json'
+
+file_cod<-read_json(filename5,simplifyVector=T)
+class(file_cod)
+
+file_cod2<-fromJSON(filename5)
+class(file_cod2)
+
+```
+
+Volvemos a usar simplifyVector=T para que los datos se guarden como data frame. Al importar con fromJSON vemos que el resultado obtenido es el mismo data frame pero en este caso no es necesario poner simplifyVector=T, lo transforma directamente.
+
+## 8.2 Inspección de los datos
+
+```{r}
+str(file_cod)
+head(file_cod)
+tail(file_cod)
+summary(as.character(file_cod)) #hay que convertir a caracter para que no de error
+```
+
+## 8.3 exportar datos en formato JSON
+
+```{r}
+filename6 <- 'data/iris_json_v2.json'
 
 
 ```
