@@ -343,7 +343,7 @@ head: devuelve las 6 primeras filas del data frame
 
 tail: devuelve las 6 últimas filas del data frame
 
-summary: da error
+summary: da error porque hay dos columnas que son fecha y hora que no son character
 
 ## 3 Fichero *Transactions from a Bakery* (Kaggle)
 
@@ -361,6 +361,27 @@ if(!dir.exists("./data/results")){
 
 save(bakery, file = "./data/results/bakery.RData")
 ```
+
+### Inspección de los datos
+
+```{r}
+str(bakery)
+head(bakery)
+tail(bakery)
+summary(bakery)
+```
+
+str: enseña la estructura interna del data frame
+
+head: devuelve las 6 primeras filas del data frame
+
+tail: devuelve las 6 últimas filas del data frame
+
+summary: devuelve datos estadísticos
+
+# 4 Fichero SPSS *PsychBike.sav*
+
+## 4.1 Importación del fichero
 
 ### Subsubapartado (nivel 3 \###). Cómo incluir figuras
 
