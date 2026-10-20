@@ -3,12 +3,10 @@ title: "Práctica 1"
 author: "Sara Marquínez Díaz"
 date: "`r Sys.Date()`"
 output:
-  bookdown::pdf_document2:
+  pdf_document:
     toc: true
     toc_depth: 3
     number_sections: true
-    figure_caption: "Figura" # Referencias en castellano
-    table_caption: "Tabla"
   html_document:
     echo: true
     number_sections: true
@@ -18,10 +16,12 @@ output:
     echo: true
     number_sections: true
     toc: true
-  pdf_document:
+  bookdown::pdf_document2:
     toc: true
     toc_depth: 3
     number_sections: true
+    figure_caption: "Figura" # Referencias en castellano
+    table_caption: "Tabla"
   bookdown::html_document2:
     echo: true
     number_sections: true
