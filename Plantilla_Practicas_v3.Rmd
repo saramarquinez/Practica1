@@ -519,5 +519,15 @@ summary(as.character(file_cod)) #hay que convertir a caracter para que no de err
 ```{r}
 filename6 <- 'data/iris_json_v2.json'
 
+library(jsonlite)
+
+load("./data/results/iris.RData")
+
+write_json(iris,path="./data/results/iris.json")
+
+
+json<-toJSON(iris,pretty=TRUE)
+
+write_file(json,"./data/results/iris2.json")
 
 ```
